@@ -1,0 +1,41 @@
+---
+openapi: 3.0.0
+info:
+  description: Member API
+  version: 1.0.0
+  title: Member API
+  termsOfService: http://swagger.io/terms/
+  contact:
+    email: apiteam@swagger.io
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+paths:
+  "/member/{memberId}":
+    get:
+      summary: Individual members API
+      description: Returns individual member information
+      parameters:
+      - name: memberId
+        in: path
+        description: Member information to be acquired
+        required: true
+        type: integer
+      responses:
+        200:
+          description: success response
+          schema:
+            "$ref": "#/definitions/Member"
+components:
+  schemas:
+    Member:
+      type: object
+      required:
+      - id
+      - name
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+          example: John
